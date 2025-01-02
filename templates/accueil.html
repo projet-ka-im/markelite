@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='imgs/LOGO.png') }}" type="image/x-icon">
+    <title>Mark Elite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <style>
+       .navbar-custom {
+    background-color: #3b4957!important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    padding-top: 30px;
+}
+.navbar-custom .nav-link {
+    color: rgb(206, 195, 195) ;
+    transition: all 0.3s ease;
+} 
+  .navbar-custom .nav-link:hover {
+        color: #ffffff;
+         text-decoration: underline;
+
+}
+.navbar-custom .navbar-brand {
+    color: rgb(243, 243, 243) !important;
+}
+.backgrnd {
+    
+    background-image: url("{{ url_for('static', filename='imgs/backgr.png') }}");
+}
+
+.about-section {
+    background: linear-gradient(to right, #f9f9ff, #eaf4ff);
+}
+.navbar-brand{
+    padding-left: 4%;
+}
+.nav-item{
+    font-size: 20px; 
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(246, 224, 224); 
+}
+.logo{
+    height: 70px;
+    width: 70px;
+}
+.logoname{
+    font-size: 25px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(246, 224, 224);
+    padding-left: 1%;
+    padding-top: 10px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.underline {
+    width: 50px;
+    height: 3px;
+    background-color: #007bff;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-top: 20px;
+}
+
+#partenaires-carousel {
+    background-color: #f9f9f9;
+}
+
+.partner-logo {
+    max-width: 150px;
+    height: auto;
+    transition: filter 0.3s ease;
+}
+
+.partner-logo:hover {
+    filter: none; 
+}
+
+.carousel-inner {
+    height: 120px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #1b1c1d; 
+    border-radius: 50%;
+}
+
+/* nosservices */
+.service-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+}
+.service-icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
+.service-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+    </style>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <img class="logo" src="{{ url_for('static', filename='imgs/LOGO.png') }}" alt="Logo" width="30" height="30"> 
+            <label class="logoname">MarkElite</label> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('services')}}" >Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('contact')}}" >Nous contacter</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid backgrnd bg-dark text-white py-5" style=" background-size: cover; background-position: center; height: 100vh;">
+        <div class="container h-100 d-flex align-items-center">
+            <div class="row w-100">
+                <!-- Colonne Texte -->
+                <div class="col-md-6 d-flex align-items-center">
+                    <div>
+                        <h1 class="display-4"> <strong>Bienvenue chez <br>l'agence MarkElite</strong></h1>
+                        <p class="lead py-3" style="color:rgb(199, 187, 195)">Transformez vos idées en réalité avec nos solutions marketing innovantes</p>
+                    </div>
+                </div>
+                <!-- Colonne Image -->
+                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                     <img src="{{ url_for('static', filename='imgs/w9f.png') }}" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- qui somme nous -->
+    <section class="about-section py-5">
+        <div class="container">
+            <h2 class="text-center py-5">Qui Sommes Nous</h2>
+            <hr class="underline mx-auto">
+            <p class="text-center mt-4">
+                Bienvenue chez Agence Marketing! Nous sommes une équipe passionnée dédiée à transformer vos idées en réalité. Depuis 2015, nous offrons des solutions innovantes en marketing digital, gestion de réseaux sociaux, création de contenu, et bien plus encore. Notre mission ? Faire de vos ambitions une réussite.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section des Services -->
+    <section class="about-section py-5">
+        <div class="container">
+            <h2 class="text-center py-5">Nos Services</h2>
+            <hr class="underline mx-auto">
+        </div>
+
+        <!-- les cards -->
+        <div class="container py-5">
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="{{ url_for('static', filename='imgs/le-marketing-numerique.png') }}">
+                        </div>
+                        <div class="service-title">Gestion des Réseaux Sociaux</div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="{{ url_for('static', filename='imgs/marketing-en-ligne.png') }}">
+                        </div>
+                        <div class="service-title">Analyse et Publicité Digitale</div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="{{ url_for('static', filename='imgs/analyse-en-ligne.png') }}">
+                        </div>
+                        <div class="service-title">Analyse de Données et Reporting</div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="{{ url_for('static', filename='imgs/redaction-de-contenu.png') }}">
+                        </div>
+                        <div class="service-title">Création de Contenu et stratégie</div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="{{ url_for('static', filename='imgs/programmation-web.png') }}">
+                        </div>
+                        <div class="service-title">creation sites web et applications</div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <img src="{{ url_for('static', filename='imgs/campagne-m.png') }}">
+                        </div>
+                        <div class="service-title">Campagnes Marketing</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partenaires -->
+    <section id="partenaires-carousel" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 py-3">Nos Partenaires</h2>
+            <div class="row">
+                <div class="col">
+                    <div id="carouselPartenaires" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner d-flex align-items-center">
+                            <div class="carousel-item active">
+                                <div class="d-flex justify-content-around">
+                                    <img src="{{ url_for('static', filename='imgs/partenaire-logo.png') }}" class="partner-logo" alt="Logo Partenaire 1">
+                                    <img src="{{ url_for('static', filename='imgs/partenaire-logo.png') }}" class="partner-logo" alt="Logo Partenaire 2">
+                                    <img src="{{ url_for('static', filename='imgs/partenaire-logo.png') }}" class="partner-logo" alt="Logo Partenaire 3">
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-around">
+                                    <img src="{{ url_for('static', filename='imgs/partenaire-logo.png') }}" class="partner-logo" alt="Logo Partenaire 4">
+                                    <img src="{{ url_for('static', filename='imgs/partenaire-logo.png') }}" class="partner-logo" alt="Logo Partenaire 5">
+                                    <img src="{{ url_for('static', filename='imgs/partenaire-logo.png') }}" class="partner-logo" alt="Logo Partenaire 6">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Boutons de navigation -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Précédent</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselPartenaires" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Suivant</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localisation -->
+    <section id="localisation" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Nous Trouver</h2>
+            <hr class="underline mx-auto">
+            <div class="row">
+                <div class="col-md-6 py-5 px-5" >
+                   <strong><p>Adresse : 123 Rue de PLACE, Taroudant, Maroc</p>
+                    <p>Téléphone : +212 000 000 000</p>
+                    <p>Email : contact@markelite.com</p></strong> 
+                    <a href="{{ url_for('contact') }}">
+                        <button type="button" class="btn btn-secondary btn-lg mx-5 my-2">Nous Contacter</button>    </a>                    
+                </div>
+                <div class="col-md-6">
+                    <iframe class="w-100" height="500" src="https://maps.google.com/maps?q=Agadir%2C%20Morocco&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 MarkElite. Tous droits réservés.</p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
